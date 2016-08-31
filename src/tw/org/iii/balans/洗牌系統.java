@@ -37,7 +37,7 @@ public class 洗牌系統 {
 		for(int []cards:player){
 			Arrays.sort(cards);
 			for(int card : cards){
-				System.out.print(suit[card/13]+value[card%13]+"   ");
+				System.out.print(suit[card/13]+value[card%13]+" ");
 			}
 			System.out.println();
 		}
