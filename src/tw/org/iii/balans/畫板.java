@@ -12,12 +12,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.text.html.ParagraphView;
 
+import javafx.scene.layout.Border;
 import sun.java2d.cmm.ProfileActivator;
 
 public class 畫板 extends JFrame {
 	private 畫板2 畫板2;
 	private JButton clean, undo, redo;
-
+//	private clock clock;
 	public 畫板() {
 		super("yoyoyo");
 
@@ -28,12 +29,19 @@ public class 畫板 extends JFrame {
 
 		clean = new JButton("clean");
 		undo = new JButton("undo");
-		redo = new JButton("clean");
-		JPanel top = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		top.add(clean);
-		top.add(undo);
-		top.add(redo);
-
+		redo = new JButton("redo");
+		JPanel top = new JPanel(new BorderLayout());
+		JPanel topLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel topRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		top.add(topLeft, BorderLayout.WEST);
+		top.add(topRight, BorderLayout.EAST);
+		
+		topLeft.add(clean);
+		topLeft.add(undo);
+		topLeft.add(redo);
+		
+//		topRight.add(clock);
+		
 		add(top, BorderLayout.NORTH);
 
 		setSize(1024, 728);
